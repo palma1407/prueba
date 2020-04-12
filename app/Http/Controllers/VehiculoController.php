@@ -11,6 +11,11 @@ use DB;
 
 class VehiculoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +24,7 @@ class VehiculoController extends Controller
 
     public function index(Request $request)
     {
+
         if ($request) {
             $query = trim($request->get('searchText'));
             $vehiculos = DB::table('vehiculos')->where('placa', 'LIKE', '%' . $query . '%')

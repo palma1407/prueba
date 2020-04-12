@@ -1,6 +1,7 @@
 <?php
 
 use illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,10 @@ use illuminate\Support\Facades\Route;
 */
 
 //Route::get('/', function () {
-  //  return view('welcome');
+//  return view('welcome');
 //});
 
 
 Route::resource('vehiculo', 'VehiculoController');
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
