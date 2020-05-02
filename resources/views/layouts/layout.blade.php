@@ -41,17 +41,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
       margin-top: 0;
       margin-bottom: 0px !important;
       color: #00078e !important;
-      background: url("../fondos/FondoPanel.png") no-repeat center #fff !important;
+      background: url("../fondos/FondoPanel.png") no-repeat center #07406f !important;
       font-size: 2.0em !important;
       letter-spacing: 3px;
       padding: 0px 0 !important;
     }
 
-    #copyright{
+    #copyright {
       text-align: right;
     }
 
-    
+    .main-sidebar {
+      background: #07406f !important;
+    }
+
+    .main-sidebar a{
+      background: #07406f !important;
+    }
+
+    #barraSuperior{
+      background: #07406f !important;
+    }
   </style>
 </head>
 <!--
@@ -85,7 +95,7 @@ desired effect
       <h1 class="logo"></h1>
 
       <!-- Header Navbar -->
-      <nav class="navbar navbar-static-top" role="navigation">
+      <nav class="navbar navbar-static-top" role="navigation" id="barraSuperior">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>

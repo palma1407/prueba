@@ -1,9 +1,8 @@
 @extends ('layouts.layout')
 @section ('contenido')
-@include('vehiculo.search')
 <div class="row">
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-        <h3>Listado de Vehículos <a href="/vehiculo/create">
+        <h3>Listado de Tarifas <a href="/tarifa/create">
                 <button class="btn btn-success">Nuevo</button></a></h3>
     </div>
 </div>
@@ -13,29 +12,27 @@
             <table class="table table-striped table-bordered table-condensed table-hover">
                 <thead>
                     <th>Id</th>
-                    <th>tipo</th>
-                    <th>placa</th>
-                    <th>modelo</th>
+                    <th>tipo Vehiculo</th>
+                    <th>Valor</th>
+                    <th>Estado</th>
                     <th>Opciones</th>
                 </thead>
-                @foreach ($vehiculos as $vehiculo)
+                @foreach ($tarifa as $tarifa)
                 <tr>
-                    <td>{{ $vehiculo->id}}</td>
-                    <td>{{ $vehiculo->tipo}}</td>
-                    <td>{{ $vehiculo->placa}}</td>
-                    <td>{{ $vehiculo->modelo}}</td>
+                    <td>{{ $tarifa->id}}</td>
+                    <td>{{ $tarifa->tipo_vehiculo->nombre}}</td>
+                    <td>{{ $tarifa->valor}}</td>
+                    <td>{{ $tarifa->estado}}</td>
                     <td>
-                        <a href="{{URL::action('VehiculoController@edit',$vehiculo->id)}}">
+                        <a href="{{URL::action('TarifaController@edit',$tarifa->id)}}">
                             <button class="btn btn-info">Editar</button></a>
-                        <a href="" data-target="#modal-delete-{{$vehiculo->id}}" data-toggle="modal">
+                        <a href="" data-target="#modal-delete-{{$tarifa->id}}" data-toggle="modal">
                             <button class="btn btn-danger">Eliminar</button></a>
-                        @include('vehiculo.modal')
                     </td>
                 </tr>
                 @endforeach
             </table>
         </div>
-        <!--{{$vehiculos->render()}}-->
     </div>
 </div>
 @endsection

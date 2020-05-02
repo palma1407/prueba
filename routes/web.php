@@ -16,8 +16,15 @@ use Illuminate\Support\Facades\Auth;
 //Route::get('/', function () {
 //  return view('welcome');
 //});
-
+Route::get('ticket/{placa}/{id}/{valor}','TicketController@generarTicket')->name('ticket');
+Route::resource('ticket','TicketController');
+Route::resource('ingresoV', 'Ingreso_vehiculoController');
 
 Route::resource('vehiculo', 'VehiculoController');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('tarifa', 'TarifaController');
+Route::get('/', function () {
+    return view('auth/login');
+});
