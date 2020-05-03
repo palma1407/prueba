@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ingreso_vehiculo;
-use DB;
-use App\Http\Controllers\Redirect;
+use App\Vehiculo;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class Ingreso_vehiculoController extends Controller
 {
@@ -16,7 +17,7 @@ class Ingreso_vehiculoController extends Controller
      */
     public function index()
     {
-        $ingreso = Ingreso_vehiculo::all(); //traer todos los datos
+        $ingreso = Ingreso_vehiculo::all();
         return view('IngresoV.index')->with('ingreso', $ingreso);
     }
 
@@ -58,7 +59,8 @@ class Ingreso_vehiculoController extends Controller
      */
     public function show($id)
     {
-        //
+        $ingreso = Ingreso_vehiculo::find($id);
+        return view('IngresoV.show', compact('ingresoV'));
     }
 
     /**
@@ -69,7 +71,8 @@ class Ingreso_vehiculoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ingreso = ingreso_vehiculo::find($id);
+        return view('IngresoV.edit', compact('ingreso'));
     }
 
     /**
@@ -81,7 +84,9 @@ class Ingreso_vehiculoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, ['vehiculo_id' => 'required', 'estado' => 'required', 'users_id' => 'required']);
+        ingreso_vehiculo::find($id)->update($request->all());
+        return redirect()->route('ingresoV.index')->with('success', 'Registro actualizado');
     }
 
     /**
@@ -92,6 +97,7 @@ class Ingreso_vehiculoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ingreso_vehiculo::find($id)->delete();
+        return redirect()->route('ingresoV.index')->with('success', 'Registro Eliminado');
     }
 }

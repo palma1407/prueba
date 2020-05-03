@@ -21,7 +21,7 @@ class TicketController extends Controller
             $query = trim($request->get('searchText'));
             $ticket = DB::table('vehiculos as v')
                 ->join('ingreso_vehiculos as i', 'i.vehiculo_id', '=', 'v.id')
-                ->join('tipo_vehiculos as tv', 'tv.id', '=', 'v.tipo_vehiculo_id')
+                ->join('tipo_vehiculos as tv', 'tv.id', '=', 'v.id')
                 ->join('tarifas as t', 'tv.id', '=', 't.tipo_vehiculo_id')
                 ->SELECT('i.id', 'v.placa', 'tv.nombre', 'i.fecha_ingreso', 't.valor')
                 ->where('v.placa', 'LIKE', '%' . $query . '%')

@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="Valor">Fecha</label>
-            <input type="text" name="valor" class="form-control" placeholder="valor Hora..." value="{{
+            <input type="text" name="fecha_ingreso" class="form-control" placeholder="valor Hora..." value="{{
 date('Y-m-d H:i:s') }}" disable>
         </div>
         <div class="form-group">

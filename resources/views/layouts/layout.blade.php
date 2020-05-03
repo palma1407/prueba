@@ -238,7 +238,9 @@ desired effect
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
+                  @if (Auth::guest())
                     <a href="{{ route('register') }}" class="btn btn-default btn-flat">Registrar</a>
+                  @endif
                   </div>
                   <div class="pull-right">
                     <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
